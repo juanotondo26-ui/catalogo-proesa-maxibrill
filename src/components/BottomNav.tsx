@@ -1,5 +1,5 @@
 import React from 'react';
-import { Home, LayoutGrid, Package, UserCog } from 'lucide-react';
+import { Home, LayoutGrid, Package } from 'lucide-react';
 
 export type TabType = 'inicio' | 'catalogo' | 'pedidos' | 'admin';
 
@@ -17,13 +17,12 @@ export const BottomNav: React.FC<BottomNavProps> = ({
   const tabs = [
     { id: 'inicio' as const, label: 'Inicio', icon: Home },
     { id: 'catalogo' as const, label: 'Catálogo', icon: LayoutGrid },
-    { id: 'pedidos' as const, label: 'Mis Pedidos', icon: Package, badge: ordersBadgeCount },
-    { id: 'admin' as const, label: 'Admin', icon: UserCog }
+    { id: 'pedidos' as const, label: 'Mis Pedidos', icon: Package, badge: ordersBadgeCount }
   ];
 
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-[#E5E5E5] px-2 py-1.5 shadow-[0_-2px_10px_rgba(0,0,0,0.05)]">
-      <div className="max-w-md mx-auto grid grid-cols-4 items-center">
+      <div className="max-w-md mx-auto grid grid-cols-3 items-center">
         {tabs.map((tab) => {
           const Icon = tab.icon;
           const isActive = currentTab === tab.id;

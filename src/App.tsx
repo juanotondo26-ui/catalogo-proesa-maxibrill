@@ -23,20 +23,62 @@ export default function App() {
   const [branding, setBranding] = useState<AppBranding>(() => {
     try {
       const saved = localStorage.getItem('proesa_branding');
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (parsed.logoPrincipal === '/1.png') {
+          parsed.logoPrincipal = '/1.svg';
+        }
+        parsed.logoSecundario = '/logo maxibrill.png';
+        return parsed;
+      }
     } catch (e) {
       console.error(e);
     }
     return {
-      logoPrincipal: '/1.png',
-      logoSecundario: '/2.png'
+      logoPrincipal: '/1.svg',
+      logoSecundario: '/logo maxibrill.png'
     };
   });
+
+  // Ensure logoSecundario is synced to /logo maxibrill.png
+  useEffect(() => {
+    setBranding((prev) => ({
+      ...prev,
+      logoSecundario: '/logo maxibrill.png'
+    }));
+
+    setCategories((prev) =>
+      prev.map((c) =>
+        c.id === 'desinfectantes'
+          ? {
+              ...c,
+              description: 'aromatizantes concentrados y limpiadores cremosos con diversas fragancias'
+            }
+          : c
+      )
+    );
+
+    setProducts((prev) =>
+      prev.map((p) =>
+        p.id === 'max-sua-10410'
+          ? {
+              ...p,
+              sku: 'CODIGO 10410',
+              name: 'MAXIBRILL SUAVIZANTE CLASSIC',
+              shortDescription: 'Suavizante para ropa con microcápsulas de perfume para máxima suavidad y aroma prolongado',
+              defaultPresentation: '5 litros.',
+              imageUrl: '/21.webp',
+              presentations: [{ name: '5 litros.', volume: '5L', price: 38, wholesalePrice: 32 }]
+            }
+          : p
+      )
+    );
+  }, []);
 
   // Products state persisted in localStorage
   const [products, setProducts] = useState<Product[]>(() => {
     try {
-      const saved = localStorage.getItem('proesa_products');
+      const saved = localStorage.getItem('proesa_products_v11');
       if (saved) return JSON.parse(saved);
     } catch (e) {
       console.error(e);
@@ -47,7 +89,7 @@ export default function App() {
   // Categories state persisted in localStorage
   const [categories, setCategories] = useState<Category[]>(() => {
     try {
-      const saved = localStorage.getItem('proesa_categories');
+      const saved = localStorage.getItem('proesa_categories_v6');
       if (saved) return JSON.parse(saved);
     } catch (e) {
       console.error(e);
@@ -126,7 +168,7 @@ export default function App() {
 
   useEffect(() => {
     try {
-      localStorage.setItem('proesa_products', JSON.stringify(products));
+      localStorage.setItem('proesa_products_v11', JSON.stringify(products));
     } catch (e) {
       console.error(e);
     }
@@ -134,7 +176,7 @@ export default function App() {
 
   useEffect(() => {
     try {
-      localStorage.setItem('proesa_categories', JSON.stringify(categories));
+      localStorage.setItem('proesa_categories_v6', JSON.stringify(categories));
     } catch (e) {
       console.error(e);
     }

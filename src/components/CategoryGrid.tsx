@@ -1,6 +1,6 @@
 import React from 'react';
 import { Category } from '../types';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, Sparkles } from 'lucide-react';
 
 interface CategoryGridProps {
   categories: Category[];
@@ -53,12 +53,24 @@ export const CategoryGrid: React.FC<CategoryGridProps> = ({ categories, onSelect
 
               {/* Product Image preview container with clean white background */}
               <div className="relative w-full h-28 sm:h-36 bg-white rounded-lg overflow-hidden flex items-center justify-center p-2 mb-2.5 border border-white/20 shadow-2xs group-hover:border-white transition-colors">
-                <img
-                  src={cat.imageUrl}
-                  alt={cat.name}
-                  loading="lazy"
-                  className="w-full h-full object-contain mix-blend-multiply group-hover:scale-105 transition-transform duration-200"
-                />
+                {cat.imageUrl && cat.imageUrl.trim() ? (
+                  <img
+                    src={cat.imageUrl}
+                    alt={cat.name}
+                    loading="eager"
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-200"
+                  />
+                ) : (
+                  <div className="flex flex-col items-center justify-center text-neutral-400 gap-1.5 p-2 select-none">
+                    <div className="w-12 h-12 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-500 border border-neutral-200">
+                      <Sparkles className="w-6 h-6 text-[#C4272B]" />
+                    </div>
+                    <span className="text-[11px] font-bold text-neutral-600 text-center leading-tight">
+                      {cat.name}
+                    </span>
+                  </div>
+                )}
               </div>
 
               {/* Card Footer */}

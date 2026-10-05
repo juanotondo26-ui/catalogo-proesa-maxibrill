@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Category, Product, PresentationOption, CartItem } from '../types';
 import { ProductCard } from './ProductCard';
-import { ArrowLeft, Filter, X, MessageCircle, RefreshCw, Package } from 'lucide-react';
+import { ArrowLeft, Filter, X, MessageCircle, RefreshCw, Package, Sparkles } from 'lucide-react';
 import { COMPANY_INFO } from '../data/catalog';
 
 interface CategoryViewProps {
@@ -92,9 +92,21 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
       </div>
 
       {/* Main Category Heading on Brand Red Background */}
-      <div className="bg-[#C4272B] text-white p-3.5 sm:p-4 rounded-xl border-2 border-[#A9171E] shadow-[2px_2px_0px_#000000] flex items-start gap-3">
-        <div className="w-2 self-stretch min-h-[28px] bg-white rounded-xs shrink-0" />
-        <div>
+      <div className="bg-[#C4272B] text-white p-3.5 sm:p-4 rounded-xl border-2 border-[#A9171E] shadow-[2px_2px_0px_#000000] flex items-center gap-3">
+        {category.imageUrl && category.imageUrl.trim() ? (
+          <div className="w-14 h-14 sm:w-16 sm:h-16 bg-white rounded-lg p-1 shrink-0 flex items-center justify-center border border-white/20 shadow-2xs overflow-hidden">
+            <img
+              src={category.imageUrl}
+              alt={category.name}
+              className="w-full h-full object-contain"
+            />
+          </div>
+        ) : (
+          <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white/10 rounded-lg p-1 shrink-0 flex items-center justify-center border border-white/20 shadow-2xs">
+            <Sparkles className="w-6 h-6 text-white" />
+          </div>
+        )}
+        <div className="flex-1 min-w-0">
           <h1 className="font-display font-black text-xl sm:text-2xl text-white leading-tight tracking-tight">
             {category.titleWithAccent}
           </h1>

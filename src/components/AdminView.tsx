@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Product, Category, AppBranding } from '../types';
 import { 
   ShieldCheck, Lock, LogOut, Image, Package, Layers, Plus, 
-  Trash2, Edit, Check, Eye, EyeOff, Upload, RefreshCw, X 
+  Trash2, Edit, Check, Eye, EyeOff, Upload, RefreshCw, X, Sparkles 
 } from 'lucide-react';
 
 interface AdminViewProps {
@@ -109,11 +109,11 @@ export const AdminView: React.FC<AdminViewProps> = ({
   };
 
   const handleResetLogos = () => {
-    setLogoPrincipal('/1.png');
+    setLogoPrincipal('/1.svg');
     setLogoSecundario('/2.png');
     onUpdateBranding({
       ...branding,
-      logoPrincipal: '/1.png',
+      logoPrincipal: '/1.svg',
       logoSecundario: '/2.png'
     });
     showNotification('Logos restablecidos a los valores por defecto');
@@ -464,7 +464,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
                     src={logoSecundario}
                     alt="Vista previa Logo Secundario"
                     className="max-h-full max-w-full object-contain"
-                    onError={(e) => { e.currentTarget.src = '/2.png'; }}
+                    onError={(e) => { e.currentTarget.src = '/logo maxibrill.png'; }}
                   />
                 </div>
 
@@ -489,7 +489,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
                       type="text"
                       value={logoSecundario}
                       onChange={(e) => setLogoSecundario(e.target.value)}
-                      placeholder="https://... o /2.png"
+                      placeholder="/logo maxibrill.png"
                       className="w-full px-3 py-1.5 text-xs bg-white border border-[#CCCCCC] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#C4272B]"
                     />
                   </div>
@@ -660,11 +660,17 @@ export const AdminView: React.FC<AdminViewProps> = ({
                 key={cat.id}
                 className="bg-white border-2 border-[#000000] rounded-xl p-3.5 shadow-[2px_2px_0px_#000000] flex gap-3 items-center justify-between"
               >
-                <img
-                  src={cat.imageUrl}
-                  alt={cat.name}
-                  className="w-14 h-14 object-contain rounded-md border border-[#E5E5E5] bg-[#F9F9F9] p-1 shrink-0"
-                />
+                {cat.imageUrl && cat.imageUrl.trim() ? (
+                  <img
+                    src={cat.imageUrl}
+                    alt={cat.name}
+                    className="w-14 h-14 object-contain rounded-md border border-[#E5E5E5] bg-[#F9F9F9] p-1 shrink-0"
+                  />
+                ) : (
+                  <div className="w-14 h-14 rounded-md border border-[#E5E5E5] bg-[#F9F9F9] flex items-center justify-center shrink-0">
+                    <Sparkles className="w-6 h-6 text-[#C4272B]" />
+                  </div>
+                )}
 
                 <div className="flex-1 min-w-0">
                   <span className="text-[10px] font-bold text-[#C4272B] block">
