@@ -17,11 +17,11 @@ export const MaxiBrillBanner: React.FC<BannerSecundarioProps> = ({
       {/* Rectangular Image (Logo Secundario) configurable from admin */}
       <div className="w-full flex items-center justify-center py-1 transition-transform duration-200 group-hover:scale-[1.02]">
         <img
-          src={logoSecundario || '/logo maxibrill.png'}
+          src={logoSecundario || '/maxi 2.png'}
           alt="Logo Maxi Brill"
           className="max-h-24 sm:max-h-28 max-w-full object-contain"
           onError={(e) => {
-            e.currentTarget.src = '/logo maxibrill.png';
+            e.currentTarget.src = '/maxi 2.png';
           }}
         />
       </div>

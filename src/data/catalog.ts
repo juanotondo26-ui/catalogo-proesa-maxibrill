@@ -8,18 +8,18 @@ export const CATEGORIES: Category[] = [
     countLabel: '10 Prod.',
     referenceCount: 10,
     badgeColor: 'red',
-    imageUrl: '/1.webp',
+    imageUrl: '/4.png',
     description: 'Aromatizantes concentrados y limpiadores cremosos con diversas fragancias',
     subcategories: ['Todos', 'Lavanda', 'Floral', 'Pino', 'Cítrico', 'Multiuso']
   },
   {
     id: 'detergentes-lavanderia',
-    name: 'SUAVISANTES',
-    titleWithAccent: 'SUAVISANTES',
+    name: 'SUAVIZANTES',
+    titleWithAccent: 'SUAVIZANTES',
     countLabel: '2 Prod.',
     referenceCount: 2,
     badgeColor: 'gray',
-    imageUrl: '/2.webp',
+    imageUrl: '/11.png',
     description: 'Suavizantes para ropa con microcápsulas de perfume para máxima suavidad y aroma prolongado.',
     subcategories: ['Todos', 'Suavidad & Perfume', 'Concentrado', 'Textil']
   },
@@ -30,7 +30,7 @@ export const CATEGORIES: Category[] = [
     countLabel: '3 Prod.',
     referenceCount: 3,
     badgeColor: 'red',
-    imageUrl: '/3.webp',
+    imageUrl: '/15.png',
     description: 'Antigrasas y desengrasantes de máxima acción para hornos, cocinas industriales y parrillas.',
     subcategories: ['Todos', 'Hornos & Parrillas', 'Cocinas Industriales', 'Cítrico']
   },
@@ -41,7 +41,7 @@ export const CATEGORIES: Category[] = [
     countLabel: '3 Prod.',
     referenceCount: 3,
     badgeColor: 'gray',
-    imageUrl: '/4.webp',
+    imageUrl: '/16.png',
     description: 'Fórmula antisarro y desinfectante que elimina 99.9% de virus y bacterias en sanitarios y azulejos.',
     subcategories: ['Todos', 'Antisarro', 'Desinfección 99.9%', 'Brillo Máximo']
   },
@@ -52,29 +52,29 @@ export const CATEGORIES: Category[] = [
     countLabel: '3 Prod.',
     referenceCount: 3,
     badgeColor: 'red',
-    imageUrl: '/5.webp',
+    imageUrl: '/19.png',
     description: 'Limpiador de vidrios y cristales con tecnología anti-rayas, anti-empañado y brillo intenso.',
     subcategories: ['Todos', 'Anti-Rayas', 'Anti-Empaño', 'Cristales & Espejos']
   },
   {
     id: 'limpiavidrios-superficies',
-    name: 'LIMPIAPISOS',
-    titleWithAccent: 'LIMPIAPISOS',
+    name: 'LIMPIA PISOS',
+    titleWithAccent: 'LIMPIA PISOS',
     countLabel: '6 Prod.',
     referenceCount: 6,
     badgeColor: 'gray',
-    imageUrl: '/22.webp',
+    imageUrl: '/22.png',
     description: 'Limpiadores desinfectantes de pisos ultra concentrados con aromas de larga duración y brillo instantáneo.',
     subcategories: ['Todos', 'Flores de Primavera', 'Despertar de Energía', 'Espíritu Joven', 'Brisas del Bosque', 'Frescura de Lavanda', 'Alegra tu Día']
   },
   {
     id: 'lavavajillas',
-    name: 'LAVAVAJILLAS',
-    titleWithAccent: 'LAVAVAJILLAS',
+    name: 'LAVA VAJILLAS',
+    titleWithAccent: 'LAVA VAJILLAS',
     countLabel: '1 Prod.',
     referenceCount: 1,
     badgeColor: 'red',
-    imageUrl: '/7.webp',
+    imageUrl: '/28.png',
     description: 'Detergente lavavajillas líquido concentrado con alto poder desengrasante y aroma a limón.',
     subcategories: ['Todos', 'Limón Activo', 'Espuma Densa', 'Ultra Desengrasante']
   },
@@ -85,7 +85,7 @@ export const CATEGORIES: Category[] = [
     countLabel: '3 Prod.',
     referenceCount: 3,
     badgeColor: 'gray',
-    imageUrl: '/8.webp',
+    imageUrl: '/29.png',
     description: 'Agua lavandina concentrada 25 g Cl/L para desinfección en cocinas, baños y utensilios.',
     subcategories: ['Todos', 'Concentrada 25g', 'Blanqueo Textil', 'Desinfección Integral']
   }
@@ -100,7 +100,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'aromatizante concentrado y limpiador cremoso con fragancia a lavanda',
     categoryId: 'desinfectantes',
     brand: 'MAXI BRILL',
-    imageUrl: '/1.webp',
+    imageUrl: '/1.png',
     defaultPresentation: '900 ml.',
     presentations: [
       { name: '900 ml.', volume: '900ml', price: 14, wholesalePrice: 11 },
@@ -131,7 +131,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'aromatizante concentrado y limpiador cremoso con fragancia a arpege',
     categoryId: 'desinfectantes',
     brand: 'MAXI BRILL',
-    imageUrl: '/12.webp',
+    imageUrl: '/2.png',
     defaultPresentation: '900 ml.',
     presentations: [
       { name: '900 ml.', volume: '900ml', price: 14, wholesalePrice: 11 },
@@ -162,7 +162,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'aromatizante concentrado y limpiador cremoso con fragancia a lavanda',
     categoryId: 'desinfectantes',
     brand: 'MAXI BRILL',
-    imageUrl: '/1.webp',
+    imageUrl: '/3.png',
     defaultPresentation: '5 litros.',
     presentations: [
       { name: '5 litros.', volume: '5L', price: 38, wholesalePrice: 32 },
@@ -193,7 +193,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'aromatizante concentrado y limpiador cremoso con fragancia a arpege',
     categoryId: 'desinfectantes',
     brand: 'MAXI BRILL',
-    imageUrl: '/1.webp',
+    imageUrl: '/4.png',
     defaultPresentation: '5 litros.',
     presentations: [
       { name: '5 litros.', volume: '5L', price: 38, wholesalePrice: 32 },
@@ -224,7 +224,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'aromatizante concentrado y limpiador cremoso con fragancia a frutilla',
     categoryId: 'desinfectantes',
     brand: 'MAXI BRILL',
-    imageUrl: '/15.webp',
+    imageUrl: '/5.png',
     defaultPresentation: '900 ml.',
     presentations: [
       { name: '900 ml.', volume: '900ml', price: 14, wholesalePrice: 11 },
@@ -255,7 +255,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'aromatizante concentrado y limpiador cremoso con fragancia a frutilla',
     categoryId: 'desinfectantes',
     brand: 'MAXI BRILL',
-    imageUrl: '/15.webp',
+    imageUrl: '/6.png',
     defaultPresentation: '5 litros.',
     presentations: [
       { name: '5 litros.', volume: '5L', price: 38, wholesalePrice: 32 },
@@ -286,7 +286,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'aromatizante concentrado y limpiador cremoso con fragancia a lavanda',
     categoryId: 'desinfectantes',
     brand: 'MAXI BRILL',
-    imageUrl: '/17.webp',
+    imageUrl: '/7.png',
     defaultPresentation: '900 ml.',
     presentations: [
       { name: '900 ml.', volume: '900ml', price: 14, wholesalePrice: 11 },
@@ -317,7 +317,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'aromatizante concentrado y limpiador cremoso con fragancia a lavanda',
     categoryId: 'desinfectantes',
     brand: 'MAXI BRILL',
-    imageUrl: '/17.webp',
+    imageUrl: '/8.png',
     defaultPresentation: '5 litros.',
     presentations: [
       { name: '5 litros.', volume: '5L', price: 38, wholesalePrice: 32 },
@@ -348,7 +348,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'aromatizante concentrado y limpiador cremoso con fragancia a pino',
     categoryId: 'desinfectantes',
     brand: 'MAXI BRILL',
-    imageUrl: '/19.webp',
+    imageUrl: '/9.png',
     defaultPresentation: '900 ml.',
     presentations: [
       { name: '900 ml.', volume: '900ml', price: 14, wholesalePrice: 11 },
@@ -379,7 +379,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'aromatizante concentrado y limpiador cremoso con fragancia a pino',
     categoryId: 'desinfectantes',
     brand: 'MAXI BRILL',
-    imageUrl: '/19.webp',
+    imageUrl: '/10.png',
     defaultPresentation: '5 litros.',
     presentations: [
       { name: '5 litros.', volume: '5L', price: 38, wholesalePrice: 32 },
@@ -404,7 +404,7 @@ export const PRODUCTS: Product[] = [
     }
   },
 
-  // SUAVISANTES
+  // SUAVIZANTES
   {
     id: 'max-sua-10410',
     sku: 'CODIGO 10410',
@@ -412,7 +412,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Suavizante para ropa con microcápsulas de perfume para máxima suavidad y aroma prolongado',
     categoryId: 'detergentes-lavanderia',
     brand: 'MAXI BRILL',
-    imageUrl: '/21.webp',
+    imageUrl: '/11.png',
     defaultPresentation: '5 litros.',
     presentations: [
       { name: '5 litros.', volume: '5L', price: 38, wholesalePrice: 32 }
@@ -438,7 +438,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Suavizante para ropa con microcápsulas de perfume para máxima suavidad y aroma prolongado',
     categoryId: 'detergentes-lavanderia',
     brand: 'MAXI BRILL',
-    imageUrl: '/21.webp',
+    imageUrl: '/12.png',
     defaultPresentation: '5 litros.',
     presentations: [
       { name: '5 litros.', volume: '5L', price: 38, wholesalePrice: 32 }
@@ -466,7 +466,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Antigrasa y desengrasante de máxima acción para hornos, cocinas industriales y parrillas',
     categoryId: 'lavavajillas-cocina',
     brand: 'MAXI BRILL',
-    imageUrl: '/3.webp',
+    imageUrl: '/13.png',
     defaultPresentation: '500 ml.',
     presentations: [
       { name: '500 ml.', volume: '500ml', price: 12, wholesalePrice: 9 }
@@ -492,7 +492,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Antigrasa y desengrasante de máxima acción para hornos, cocinas industriales y parrillas',
     categoryId: 'lavavajillas-cocina',
     brand: 'MAXI BRILL',
-    imageUrl: '/3.webp',
+    imageUrl: '/14.png',
     defaultPresentation: '900 ml.',
     presentations: [
       { name: '900 ml.', volume: '900ml', price: 18, wholesalePrice: 15 }
@@ -518,7 +518,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Antigrasa y desengrasante de máxima acción para hornos, cocinas industriales y parrillas',
     categoryId: 'lavavajillas-cocina',
     brand: 'MAXI BRILL',
-    imageUrl: '/3.webp',
+    imageUrl: '/15.png',
     defaultPresentation: '5 litros.',
     presentations: [
       { name: '5 litros.', volume: '5L', price: 44, wholesalePrice: 38 }
@@ -546,7 +546,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Fórmula antisarro y desinfectante que elimina 99.9% de virus y bacterias en sanitarios y azulejos',
     categoryId: 'cuidado-pisos',
     brand: 'MAXI BRILL',
-    imageUrl: '/4.webp',
+    imageUrl: '/16.png',
     defaultPresentation: '5 litros.',
     presentations: [
       { name: '5 litros.', volume: '5L', price: 42, wholesalePrice: 35 }
@@ -572,7 +572,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Fórmula antisarro y desinfectante que elimina 99.9% de virus y bacterias en sanitarios y azulejos',
     categoryId: 'cuidado-pisos',
     brand: 'MAXI BRILL',
-    imageUrl: '/32.webp',
+    imageUrl: '/17.png',
     defaultPresentation: '940 ml.',
     presentations: [
       { name: '940 ml.', volume: '940ml', price: 18, wholesalePrice: 15 }
@@ -598,7 +598,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Fórmula antisarro y desinfectante que elimina 99.9% de virus y bacterias en sanitarios y azulejos',
     categoryId: 'cuidado-pisos',
     brand: 'MAXI BRILL',
-    imageUrl: '/33.webp',
+    imageUrl: '/18.png',
     defaultPresentation: '940 ml.',
     presentations: [
       { name: '940 ml.', volume: '940ml', price: 14, wholesalePrice: 11 }
@@ -626,7 +626,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Brilla más, limpia mejor con tecnología anti-rayas y anti-empañante para cristales y ventanas',
     categoryId: 'cuidado-institucional-manos',
     brand: 'MAXI BRILL',
-    imageUrl: '/5.webp',
+    imageUrl: '/19.png',
     defaultPresentation: '5 litros.',
     presentations: [
       { name: '5 litros.', volume: '5L', price: 36, wholesalePrice: 30 }
@@ -652,7 +652,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Brilla más, limpia mejor con tecnología anti-rayas y anti-empañante para cristales y ventanas',
     categoryId: 'cuidado-institucional-manos',
     brand: 'MAXI BRILL',
-    imageUrl: '/52.webp',
+    imageUrl: '/20.png',
     defaultPresentation: '940 ml.',
     presentations: [
       { name: '940 ml.', volume: '940ml', price: 18, wholesalePrice: 15 }
@@ -678,7 +678,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Brilla más, limpia mejor con tecnología anti-rayas y anti-empañante para cristales y ventanas',
     categoryId: 'cuidado-institucional-manos',
     brand: 'MAXI BRILL',
-    imageUrl: '/53.webp',
+    imageUrl: '/21.png',
     defaultPresentation: '940 ml.',
     presentations: [
       { name: '940 ml.', volume: '940ml', price: 14, wholesalePrice: 11 }
@@ -698,15 +698,15 @@ export const PRODUCTS: Product[] = [
     }
   },
 
-  // LIMPIAPISOS (22.webp)
+  // LIMPIA PISOS
   {
     id: 'max-pis-10444',
     sku: 'CODIGO 10444',
-    name: 'MAXIBRILL LIMPIAPISOS ULTRA FLORES DE PRIMAVERA',
+    name: 'MAXIBRILL LIMPIA PISOS ULTRA FLORES DE PRIMAVERA',
     shortDescription: 'Limpiador desinfectante concentrado con fragancia intensa a flores de primavera y brillo prolongado.',
     categoryId: 'limpiavidrios-superficies',
     brand: 'MAXI BRILL',
-    imageUrl: '/22.webp',
+    imageUrl: '/22.png',
     defaultPresentation: '6 litros.',
     presentations: [
       { name: '6 litros.', volume: '6L', price: 42, wholesalePrice: 35 }
@@ -728,11 +728,11 @@ export const PRODUCTS: Product[] = [
   {
     id: 'max-pis-10447',
     sku: 'CODIGO 10447',
-    name: 'MAXIBRILL LIMPIAPISOS ULTRA DESPERTAR DE ENERGIA',
+    name: 'MAXIBRILL LIMPIA PISOS ULTRA DESPERTAR DE ENERGIA',
     shortDescription: 'Limpiador desinfectante concentrado con fragancia energizante cítrica y acción multisuperficie.',
     categoryId: 'limpiavidrios-superficies',
     brand: 'MAXI BRILL',
-    imageUrl: '/22.webp',
+    imageUrl: '/23.png',
     defaultPresentation: '6 litros.',
     presentations: [
       { name: '6 litros.', volume: '6L', price: 42, wholesalePrice: 35 }
@@ -754,11 +754,11 @@ export const PRODUCTS: Product[] = [
   {
     id: 'max-pis-10448',
     sku: 'CODIGO 10448',
-    name: 'MAXIBRILL LIMPIAPISOS ULTRA ESPIRITU JOVEN',
+    name: 'MAXIBRILL LIMPIA PISOS ULTRA ESPIRITU JOVEN',
     shortDescription: 'Limpiador desinfectante concentrado con vibrante aroma juvenil de máxima frescura y brillo reluciente.',
     categoryId: 'limpiavidrios-superficies',
     brand: 'MAXI BRILL',
-    imageUrl: '/22.webp',
+    imageUrl: '/24.png',
     defaultPresentation: '6 litros.',
     presentations: [
       { name: '6 litros.', volume: '6L', price: 42, wholesalePrice: 35 }
@@ -780,11 +780,11 @@ export const PRODUCTS: Product[] = [
   {
     id: 'max-pis-10453',
     sku: 'CODIGO 10453',
-    name: 'MAXIBRILL LIMPIAPISOS ULTRA BRISAS DEL BOSQUE',
+    name: 'MAXIBRILL LIMPIA PISOS ULTRA BRISAS DEL BOSQUE',
     shortDescription: 'Limpiador desinfectante concentrado con notas frescas herbales de pino y bosque para ambientes puros.',
     categoryId: 'limpiavidrios-superficies',
     brand: 'MAXI BRILL',
-    imageUrl: '/22.webp',
+    imageUrl: '/25.png',
     defaultPresentation: '6 litros.',
     presentations: [
       { name: '6 litros.', volume: '6L', price: 42, wholesalePrice: 35 }
@@ -806,11 +806,11 @@ export const PRODUCTS: Product[] = [
   {
     id: 'max-pis-10456',
     sku: 'CODIGO 10456',
-    name: 'MAXIBRILL LIMPIAPISOS ULTRA FRESCURA DE LAVANDA',
+    name: 'MAXIBRILL LIMPIA PISOS ULTRA FRESCURA DE LAVANDA',
     shortDescription: 'Limpiador desinfectante concentrado con aroma relajante a lavanda silvestre y secado rápido sin rayas.',
     categoryId: 'limpiavidrios-superficies',
     brand: 'MAXI BRILL',
-    imageUrl: '/22.webp',
+    imageUrl: '/26.png',
     defaultPresentation: '6 litros.',
     presentations: [
       { name: '6 litros.', volume: '6L', price: 42, wholesalePrice: 35 }
@@ -832,11 +832,11 @@ export const PRODUCTS: Product[] = [
   {
     id: 'max-pis-10459',
     sku: 'CODIGO 10459',
-    name: 'MAXIBRILL LIMPIAPISOS ULTRA ALEGRA TU DIA',
+    name: 'MAXIBRILL LIMPIA PISOS ULTRA ALEGRA TU DIA',
     shortDescription: 'Limpiador desinfectante concentrado con fragancia fresca y alegre para pisos relucientes y perfumados.',
     categoryId: 'limpiavidrios-superficies',
     brand: 'MAXI BRILL',
-    imageUrl: '/22.webp',
+    imageUrl: '/27.png',
     defaultPresentation: '6 litros.',
     presentations: [
       { name: '6 litros.', volume: '6L', price: 42, wholesalePrice: 35 }
@@ -856,15 +856,15 @@ export const PRODUCTS: Product[] = [
     }
   },
 
-  // LAVAVAJILLAS (7.webp)
+  // LAVA VAJILLAS
   {
     id: 'max-vaj-10462',
     sku: 'CODIGO 10462',
-    name: 'MAXIBRILL LAVAVAJILLAS LIMON ULTRA',
+    name: 'MAXIBRILL LAVA VAJILLAS LIMON ULTRA',
     shortDescription: 'Detergente lavavajillas líquido concentrado con alto poder desengrasante cítrico, espuma densa y rendimiento superior.',
     categoryId: 'lavavajillas',
     brand: 'MAXI BRILL',
-    imageUrl: '/7.webp',
+    imageUrl: '/28.png',
     defaultPresentation: '5 litros.',
     presentations: [
       { name: '5 litros.', volume: '5L', price: 35, wholesalePrice: 29 }
@@ -884,7 +884,7 @@ export const PRODUCTS: Product[] = [
     }
   },
 
-  // LAVANDINAS (8.webp, 82.webp)
+  // LAVANDINAS
   {
     id: 'max-lav-10919',
     sku: 'CODIGO 10919',
@@ -892,7 +892,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Agua lavandina concentrada 25 g Cl/L para desinfección profunda 99.9%, blanqueo y sanitización.',
     categoryId: 'lavandinas',
     brand: 'MAXI BRILL',
-    imageUrl: '/8.webp',
+    imageUrl: '/29.png',
     defaultPresentation: '5 litros.',
     presentations: [
       { name: '5 litros.', volume: '5L', price: 28, wholesalePrice: 22 }
@@ -918,7 +918,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Lavandina concentrada desinfectante con 5X más poder, desinfecta, blanquea y limpia.',
     categoryId: 'lavandinas',
     brand: 'MAXI BRILL',
-    imageUrl: '/82.webp',
+    imageUrl: '/30.png',
     defaultPresentation: '1 litros.',
     presentations: [
       { name: '1 litros.', volume: '1L', price: 9, wholesalePrice: 7 }
@@ -944,7 +944,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: 'Lavandina concentrada desinfectante con 5X más poder, desinfecta, blanquea y limpia.',
     categoryId: 'lavandinas',
     brand: 'MAXI BRILL',
-    imageUrl: '/82.webp',
+    imageUrl: '/31.png',
     defaultPresentation: '2 litros.',
     presentations: [
       { name: '2 litros.', volume: '2L', price: 16, wholesalePrice: 13 }

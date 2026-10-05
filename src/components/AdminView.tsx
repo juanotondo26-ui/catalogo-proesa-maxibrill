@@ -464,7 +464,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
                     src={logoSecundario}
                     alt="Vista previa Logo Secundario"
                     className="max-h-full max-w-full object-contain"
-                    onError={(e) => { e.currentTarget.src = '/logo maxibrill.png'; }}
+                    onError={(e) => { e.currentTarget.src = '/maxi 2.png'; }}
                   />
                 </div>
 
@@ -489,7 +489,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
                       type="text"
                       value={logoSecundario}
                       onChange={(e) => setLogoSecundario(e.target.value)}
-                      placeholder="/logo maxibrill.png"
+                      placeholder="/maxi 2.png"
                       className="w-full px-3 py-1.5 text-xs bg-white border border-[#CCCCCC] rounded-lg focus:outline-none focus:ring-1 focus:ring-[#C4272B]"
                     />
                   </div>
