@@ -40,45 +40,18 @@ export default function App() {
     };
   });
 
-  // Ensure logoSecundario is synced to /maxi 2.png
+  // Ensure branding is synced to /maxi 2.png
   useEffect(() => {
     setBranding((prev) => ({
       ...prev,
       logoSecundario: '/maxi 2.png'
     }));
-
-    setCategories((prev) =>
-      prev.map((c) =>
-        c.id === 'desinfectantes'
-          ? {
-              ...c,
-              description: 'aromatizantes concentrados y limpiadores cremosos con diversas fragancias'
-            }
-          : c
-      )
-    );
-
-    setProducts((prev) =>
-      prev.map((p) =>
-        p.id === 'max-sua-10410'
-          ? {
-              ...p,
-              sku: 'CODIGO 10410',
-              name: 'MAXIBRILL SUAVIZANTE CLASSIC',
-              shortDescription: 'Suavizante para ropa con microcápsulas de perfume para máxima suavidad y aroma prolongado',
-              defaultPresentation: '5 litros.',
-              imageUrl: '/11.png',
-              presentations: [{ name: '5 litros.', volume: '5L', price: 38, wholesalePrice: 32 }]
-            }
-          : p
-      )
-    );
   }, []);
 
   // Products state persisted in localStorage
   const [products, setProducts] = useState<Product[]>(() => {
     try {
-      const saved = localStorage.getItem('proesa_products_v15');
+      const saved = localStorage.getItem('proesa_products_v19');
       if (saved) return JSON.parse(saved);
     } catch (e) {
       console.error(e);
@@ -89,7 +62,7 @@ export default function App() {
   // Categories state persisted in localStorage
   const [categories, setCategories] = useState<Category[]>(() => {
     try {
-      const saved = localStorage.getItem('proesa_categories_v10');
+      const saved = localStorage.getItem('proesa_categories_v12');
       if (saved) return JSON.parse(saved);
     } catch (e) {
       console.error(e);
@@ -168,7 +141,7 @@ export default function App() {
 
   useEffect(() => {
     try {
-      localStorage.setItem('proesa_products_v15', JSON.stringify(products));
+      localStorage.setItem('proesa_products_v19', JSON.stringify(products));
     } catch (e) {
       console.error(e);
     }
@@ -176,7 +149,7 @@ export default function App() {
 
   useEffect(() => {
     try {
-      localStorage.setItem('proesa_categories_v10', JSON.stringify(categories));
+      localStorage.setItem('proesa_categories_v12', JSON.stringify(categories));
     } catch (e) {
       console.error(e);
     }

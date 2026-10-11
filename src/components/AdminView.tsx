@@ -583,10 +583,18 @@ export const AdminView: React.FC<AdminViewProps> = ({
                     <h3 className="font-display font-bold text-xs sm:text-sm text-[#1A1C1C] truncate">
                       {product.name}
                     </h3>
-                    <div className="flex items-center gap-1.5 mt-0.5">
+                    <div className="flex flex-wrap items-center gap-1.5 mt-0.5">
                       <span className="text-[10px] font-bold text-[#C4272B] bg-[#FFF0F0] px-1.5 py-0.5 rounded-sm">
                         {product.defaultPresentation || '1 Litro'}
                       </span>
+                      <span className="text-[10px] font-bold text-[#1A1C1C] bg-gray-100 px-1.5 py-0.5 rounded-sm">
+                        Unidad: {product.price} Bs.
+                      </span>
+                      {product.packPrice && product.packUnits ? (
+                        <span className="text-[10px] font-bold text-amber-800 bg-amber-100 px-1.5 py-0.5 rounded-sm">
+                          Pack ({product.packUnits}u): {product.packPrice} Bs.
+                        </span>
+                      ) : null}
                       <p className="text-[11px] text-[#737373] truncate">
                         {product.shortDescription || 'Sin características'}
                       </p>
@@ -832,15 +840,92 @@ export const AdminView: React.FC<AdminViewProps> = ({
                     setEditingProduct({
                       ...editingProduct,
                       defaultPresentation: val,
-                      presentations: [{ name: val, volume: val, price: 0 }]
+                      presentations: [{
+                        name: val,
+                        volume: val,
+                        price: editingProduct.price,
+                        packUnits: editingProduct.packUnits,
+                        packPrice: editingProduct.packPrice
+                      }]
                     });
                   }}
-                  placeholder="Ej. 1 Litro, 500 ml, Galón 3.8L, Bidón 20L..."
+                  placeholder="Ej. 1 Litro, 900 ml, 5 L, 6 L..."
                   className="w-full px-2.5 py-1.5 border border-[#000000] rounded-md font-bold text-[#C4272B] bg-white"
                 />
                 <span className="text-[10px] text-[#737373] mt-1 block">
                   Este texto se mostrará directamente en el botón rojo de presentación en la ventana de categorías.
                 </span>
+              </div>
+
+              {/* Precios Oficiales (Unidad y PACK en Bs.) */}
+              <div className="bg-[#FFFDF5] p-2.5 rounded-lg border border-[#F0D080] space-y-2">
+                <span className="font-bold text-[#A56800] uppercase text-[11px] block">
+                  Precios Oficiales de Distribución (en Bs.)
+                </span>
+                <div className="grid grid-cols-3 gap-2">
+                  <div>
+                    <label className="font-bold text-[#555555] block mb-0.5 text-[10.5px]">Precio Unidad (Bs.) *</label>
+                    <input
+                      type="number"
+                      step="any"
+                      min="0"
+                      value={editingProduct.price || ''}
+                      onChange={(e) => {
+                        const price = parseFloat(e.target.value) || 0;
+                        setEditingProduct({
+                          ...editingProduct,
+                          price,
+                          presentations: (editingProduct.presentations || []).map((pres, idx) =>
+                            idx === 0 ? { ...pres, price } : pres
+                          )
+                        });
+                      }}
+                      className="w-full px-2 py-1.5 border border-[#CCCCCC] rounded-md font-bold text-[#C4272B] bg-white text-xs"
+                      placeholder="Ej. 9"
+                    />
+                  </div>
+                  <div>
+                    <label className="font-bold text-[#555555] block mb-0.5 text-[10.5px]">Unid. por PACK</label>
+                    <input
+                      type="number"
+                      min="1"
+                      value={editingProduct.packUnits || ''}
+                      onChange={(e) => {
+                        const packUnits = parseInt(e.target.value, 10) || undefined;
+                        setEditingProduct({
+                          ...editingProduct,
+                          packUnits,
+                          presentations: (editingProduct.presentations || []).map((pres, idx) =>
+                            idx === 0 ? { ...pres, packUnits } : pres
+                          )
+                        });
+                      }}
+                      className="w-full px-2 py-1.5 border border-[#CCCCCC] rounded-md font-semibold text-[#1A1C1C] bg-white text-xs"
+                      placeholder="Ej. 12"
+                    />
+                  </div>
+                  <div>
+                    <label className="font-bold text-[#555555] block mb-0.5 text-[10.5px]">Precio PACK (Bs.)</label>
+                    <input
+                      type="number"
+                      step="any"
+                      min="0"
+                      value={editingProduct.packPrice || ''}
+                      onChange={(e) => {
+                        const packPrice = parseFloat(e.target.value) || undefined;
+                        setEditingProduct({
+                          ...editingProduct,
+                          packPrice,
+                          presentations: (editingProduct.presentations || []).map((pres, idx) =>
+                            idx === 0 ? { ...pres, packPrice } : pres
+                          )
+                        });
+                      }}
+                      className="w-full px-2 py-1.5 border border-[#CCCCCC] rounded-md font-bold text-amber-700 bg-white text-xs"
+                      placeholder="Ej. 108"
+                    />
+                  </div>
+                </div>
               </div>
 
               {/* Características del Producto */}

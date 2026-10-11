@@ -39,8 +39,12 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
 
   if (!isOpen) return null;
 
-  // Total quantity of requested items
+  // Total quantity of requested items and Total in Bs.
   const totalCantidad = cartItems.reduce((acc, item) => acc + item.quantity, 0);
+  const totalBs = cartItems.reduce((acc, item) => {
+    const price = item.presentation.price || item.product.price || 0;
+    return acc + (price * item.quantity);
+  }, 0);
 
   const handleSendToWhatsApp = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
@@ -86,7 +90,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
 
     onOrderPlaced(newOrder);
 
-    // Format WhatsApp message with Solicitante and Cantidades
+    // Format WhatsApp message with Solicitante, Cantidades and Precios en Bs.
     let msg = `🛒 *SOLICITUD DE PEDIDO - PROESA DISTRIBUIDORA*\n`;
     msg += `📋 *Código de Registro:* ${orderNumber}\n\n`;
     
@@ -95,13 +99,20 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
     msg += `• *Dirección:* ${solicitante.direccion}\n`;
     msg += `• *Celular:* ${solicitante.celular}\n\n`;
 
-    msg += `📦 *PRODUCTOS Y CANTIDADES SOLICITADAS:*\n`;
+    msg += `📦 *PRODUCTOS, CANTIDADES Y PRECIOS:*\n`;
     cartItems.forEach((item, index) => {
-      msg += `${index + 1}. *${item.product.name}*\n`;
-      msg += `   └ Presentación: ${item.presentation.name} | *Cantidad: ${item.quantity} unidades*\n`;
+      const unitPrice = item.presentation.price || item.product.price || 0;
+      const subtotal = unitPrice * item.quantity;
+      msg += `${index + 1}. *${item.product.name}* (${item.product.sku})\n`;
+      msg += `   └ Pres: ${item.presentation.name} | Cant: ${item.quantity} u. | P. Unit: ${unitPrice} Bs. | Subtotal: ${subtotal} Bs.\n`;
+      if (item.product.packPrice && item.product.packUnits) {
+        msg += `      (Ref. PACK: ${item.product.packPrice} Bs. x ${item.product.packUnits} u.)\n`;
+      }
     });
 
-    msg += `\n📊 *CANTIDAD TOTAL:* ${totalCantidad} unidades solicitadas\n`;
+    msg += `\n📊 *RESUMEN DEL PEDIDO:*\n`;
+    msg += `• *Cantidad Total:* ${totalCantidad} unidades solicitadas\n`;
+    msg += `• *Monto Estimado Total:* ${totalBs} Bs.\n`;
     msg += `\n_Mensaje enviado al +591 72853351 desde el Catálogo PROESA Distribuidora (calle Ostria Reyes 432)_`;
 
     // WhatsApp link to +591 72853351
@@ -199,8 +210,18 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                       <div className="text-[11px] text-[#555555]">
                         Presentación: <span className="font-semibold text-[#1A1C1C]">{item.presentation.name}</span>
                       </div>
-                      <div className="text-[11px] font-bold text-[#C4272B] mt-0.5">
-                        Cantidad: {item.quantity} {item.quantity === 1 ? 'unidad' : 'unidades'}
+                      <div className="flex flex-wrap items-center gap-1.5 mt-0.5 text-[10.5px]">
+                        <span className="font-bold text-[#C4272B]">
+                          {item.presentation.price || item.product.price} Bs./u.
+                        </span>
+                        {item.product.packPrice && item.product.packUnits ? (
+                          <span className="text-[#555555] bg-gray-100 px-1 rounded-xs">
+                            Pack ({item.product.packUnits}u): {item.product.packPrice} Bs.
+                          </span>
+                        ) : null}
+                      </div>
+                      <div className="text-[11px] font-bold text-[#1A1C1C] mt-0.5">
+                        Subtotal: <span className="text-[#C4272B]">{((item.presentation.price || item.product.price) * item.quantity)} Bs.</span> ({item.quantity} {item.quantity === 1 ? 'u.' : 'u.'})
                       </div>
                     </div>
 
@@ -308,9 +329,15 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
         {/* Drawer Footer with Enviar a WhatsApp Button */}
         {cartItems.length > 0 && !orderSentSuccess && (
           <div className="p-4 bg-[#F9F9F9] border-t border-[#E5E5E5] space-y-2.5">
-            <div className="flex justify-between items-center text-xs font-bold text-[#1A1C1C]">
-              <span>Cantidad Total Solicitada:</span>
-              <span className="font-display text-sm text-[#C4272B] tnum">{totalCantidad} unidades</span>
+            <div className="space-y-1">
+              <div className="flex justify-between items-center text-xs font-bold text-[#1A1C1C]">
+                <span>Cantidad Total Solicitada:</span>
+                <span className="font-display text-sm text-[#C4272B] tnum">{totalCantidad} unidades</span>
+              </div>
+              <div className="flex justify-between items-center text-xs font-bold text-[#1A1C1C] border-t border-gray-200 pt-1">
+                <span>Total Estimado del Pedido:</span>
+                <span className="font-display text-base text-[#C4272B] font-black tnum">{totalBs} Bs.</span>
+              </div>
             </div>
 
             <button

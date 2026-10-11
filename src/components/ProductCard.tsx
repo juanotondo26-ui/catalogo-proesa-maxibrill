@@ -18,10 +18,12 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   onOpenFicha
 }) => {
   // Use product.defaultPresentation or first presentation
-  const currentPresentation: PresentationOption = {
-    name: product.defaultPresentation || product.presentations[0]?.name || '1 Litro',
+  const currentPresentation: PresentationOption = product.presentations[0] || {
+    name: product.defaultPresentation || '1 Litro',
     volume: product.defaultPresentation || '1L',
-    price: 0
+    price: product.price || 0,
+    packUnits: product.packUnits,
+    packPrice: product.packPrice
   };
 
   const [justAdded, setJustAdded] = useState(false);
@@ -74,22 +76,41 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             </h3>
 
             {/* Short description */}
-            <p className="text-xs text-white/90 line-clamp-3 mt-1.5 leading-relaxed font-normal">
+            <p className="text-xs text-white/90 line-clamp-2 mt-1 leading-relaxed font-normal">
               {product.shortDescription}
             </p>
           </div>
 
-          {/* Presentación */}
-          <div className="mt-2.5">
-            <span className="text-[11.5px] font-bold text-white/90 uppercase tracking-wider block mb-1">
-              PRESENTACIÓN:
-            </span>
-            <button
-              type="button"
-              className="px-3.5 py-1.5 bg-white text-[#C4272B] text-xs sm:text-sm font-black rounded-lg shadow-[1.5px_1.5px_0px_#000000] select-none inline-flex items-center"
-            >
-              {product.defaultPresentation || '1 Litro'}
-            </button>
+          {/* Presentación y Precios en Bs. */}
+          <div className="mt-2 space-y-1.5">
+            <div className="flex items-center gap-1.5">
+              <span className="text-[10.5px] font-bold text-white/90 uppercase tracking-wider">
+                PRESENTACIÓN:
+              </span>
+              <span className="px-2 py-0.5 bg-white text-[#C4272B] text-xs font-black rounded-md shadow-[1px_1px_0px_#000000] select-none inline-flex items-center">
+                {product.defaultPresentation || '1 Litro'}
+              </span>
+            </div>
+
+            {/* Cuadro de Precios Oficiales (Unidad y Pack en Bs.) */}
+            <div className="bg-black/25 border border-white/20 rounded-lg p-2 flex flex-col gap-1">
+              <div className="flex items-center justify-between text-xs">
+                <span className="text-white/90 font-medium">Precio Unidad:</span>
+                <span className="bg-white text-[#C4272B] px-1.5 py-0.5 rounded-xs font-display font-black text-xs sm:text-sm shadow-2xs">
+                  {product.price} Bs.
+                </span>
+              </div>
+              {product.packPrice && product.packUnits ? (
+                <div className="flex items-center justify-between text-xs border-t border-white/15 pt-1">
+                  <span className="text-white/90 font-medium">
+                    Precio PACK ({product.packUnits} unid.):
+                  </span>
+                  <span className="bg-amber-300 text-[#1A1C1C] px-1.5 py-0.5 rounded-xs font-display font-black text-xs sm:text-sm shadow-2xs">
+                    {product.packPrice} Bs.
+                  </span>
+                </div>
+              ) : null}
+            </div>
           </div>
         </div>
       </div>
@@ -126,9 +147,14 @@ export const ProductCard: React.FC<ProductCardProps> = ({
             >
               <Minus className="w-4 h-4" />
             </button>
-            <span className="font-display font-black text-xs sm:text-sm text-[#C4272B] tnum px-2">
-              Cantidad: {quantityInCart} unid.
-            </span>
+            <div className="text-center px-1">
+              <span className="block font-display font-black text-xs sm:text-sm text-[#C4272B] tnum">
+                {quantityInCart} unid.
+              </span>
+              <span className="block text-[10px] font-bold text-[#555555]">
+                Total: {quantityInCart * product.price} Bs.
+              </span>
+            </div>
             <button
               onClick={() => onUpdateCartQty(product, currentPresentation, quantityInCart + 1)}
               className="w-8 h-8 flex items-center justify-center bg-black text-white hover:bg-neutral-800 rounded-md transition-colors cursor-pointer"

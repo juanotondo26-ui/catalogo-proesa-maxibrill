@@ -1,6 +1,8 @@
 export type PresentationOption = {
-  name: string; // e.g. "1 Litro", "Galón 3.8L", "Bidón 20L", "Caja x 12"
-  price: number; // in Bs.
+  name: string; // e.g. "1 Litro", "5 L", "900 ml"
+  price: number; // in Bs. (precio por unidad)
+  packUnits?: number; // unidades por pack
+  packPrice?: number; // precio del pack en Bs.
   wholesalePrice?: number; // wholesale price for bulk
   skuModifier?: string;
   volume: string;
@@ -18,7 +20,7 @@ export type TechnicalSheet = {
 
 export type Product = {
   id: string;
-  sku: string; // e.g. "CÓD: PRO-AMO-501"
+  sku: string; // e.g. "CODIGO 10241"
   name: string;
   shortDescription: string;
   categoryId: string;
@@ -26,7 +28,9 @@ export type Product = {
   imageUrl: string;
   defaultPresentation: string;
   presentations: PresentationOption[];
-  price: number;
+  price: number; // precio por unidad en Bs.
+  packUnits?: number; // unidades por pack
+  packPrice?: number; // precio de pack en Bs.
   inStock: boolean;
   stockCount: number;
   featured?: boolean;

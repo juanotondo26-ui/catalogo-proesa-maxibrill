@@ -148,15 +148,40 @@ export const FichaTecnicaModal: React.FC<FichaTecnicaModalProps> = ({ product, o
             </ul>
           </div>
 
-          {/* Available presentations */}
-          <div>
-            <span className="text-[11px] font-bold text-[#737373] uppercase block mb-1">
-              Presentación Oficial
-            </span>
-            <div className="flex flex-wrap gap-1.5">
-              <span className="px-3 py-1 text-xs font-bold bg-[#C4272B] text-white rounded-md">
-                {product.defaultPresentation || product.presentations[0]?.name || '1 Litro'}
+          {/* Available presentations & Prices */}
+          <div className="space-y-2">
+            <div>
+              <span className="text-[11px] font-bold text-[#737373] uppercase block mb-1">
+                Presentación Oficial
               </span>
+              <div className="flex flex-wrap gap-1.5">
+                <span className="px-3 py-1 text-xs font-bold bg-[#C4272B] text-white rounded-md">
+                  {product.defaultPresentation || product.presentations[0]?.name || '1 Litro'}
+                </span>
+              </div>
+            </div>
+
+            {/* Cuadro de Precios Oficiales en Bs. */}
+            <div className="bg-[#FFF5F5] border border-[#FFD0D0] rounded-lg p-2.5 flex flex-col gap-1.5">
+              <span className="text-[10px] font-bold text-[#C4272B] uppercase tracking-wider block">
+                Precios Oficiales de Distribución (en Bs.)
+              </span>
+              <div className="flex items-center justify-between text-xs">
+                <span className="text-[#1A1C1C] font-semibold">Precio por Unidad:</span>
+                <span className="bg-[#C4272B] text-white px-2 py-0.5 rounded font-display font-black text-xs sm:text-sm">
+                  {product.price} Bs.
+                </span>
+              </div>
+              {product.packPrice && product.packUnits ? (
+                <div className="flex items-center justify-between text-xs border-t border-[#FFD0D0] pt-1">
+                  <span className="text-[#1A1C1C] font-semibold">
+                    Precio de PACK ({product.packUnits} unidades):
+                  </span>
+                  <span className="bg-[#E6A100] text-black px-2 py-0.5 rounded font-display font-black text-xs sm:text-sm">
+                    {product.packPrice} Bs.
+                  </span>
+                </div>
+              ) : null}
             </div>
           </div>
         </div>
