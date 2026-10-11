@@ -95,7 +95,7 @@ export default function App() {
   // Orders state persisted in localStorage
   const [orders, setOrders] = useState<Order[]>(() => {
     try {
-      const saved = localStorage.getItem('proesa_orders');
+      const saved = localStorage.getItem('proesa_orders_v2');
       if (saved) return JSON.parse(saved);
     } catch (e) {
       console.error(e);
@@ -111,16 +111,17 @@ export default function App() {
         items: [
           {
             product: PRODUCTS[0],
-            presentation: PRODUCTS[0].presentations[2],
+            presentation: PRODUCTS[0].presentations[0] || { name: PRODUCTS[0].defaultPresentation, volume: PRODUCTS[0].defaultPresentation, price: PRODUCTS[0].price, packUnits: PRODUCTS[0].packUnits, packPrice: PRODUCTS[0].packPrice },
             quantity: 2
           },
           {
             product: PRODUCTS[1],
-            presentation: PRODUCTS[1].presentations[1],
+            presentation: PRODUCTS[1].presentations[0] || { name: PRODUCTS[1].defaultPresentation, volume: PRODUCTS[1].defaultPresentation, price: PRODUCTS[1].price, packUnits: PRODUCTS[1].packUnits, packPrice: PRODUCTS[1].packPrice },
             quantity: 4
           }
         ],
         totalQuantity: 6,
+        total: 116,
         status: 'Confirmado'
       }
     ];
@@ -165,7 +166,7 @@ export default function App() {
 
   useEffect(() => {
     try {
-      localStorage.setItem('proesa_orders', JSON.stringify(orders));
+      localStorage.setItem('proesa_orders_v2', JSON.stringify(orders));
     } catch (e) {
       console.error(e);
     }
@@ -343,6 +344,7 @@ export default function App() {
           <OrdersView
             orders={orders}
             cartItems={cartItems}
+            catalogProducts={products}
             onReorder={handleReorder}
             onExploreCatalog={() => {
               setCurrentTab('inicio');
