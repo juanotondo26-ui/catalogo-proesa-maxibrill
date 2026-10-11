@@ -6,24 +6,22 @@ import {
   Phone, 
   Send, 
   ShoppingBag, 
-  Clock, 
   CheckCircle2, 
-  RotateCcw, 
-  MessageCircle, 
   Receipt, 
-  PackageCheck,
   AlertCircle
 } from 'lucide-react';
 import { COMPANY_INFO } from '../data/catalog';
 
 interface OrdersViewProps {
-  orders: Order[];
+  orders?: Order[];
   cartItems: CartItem[];
   catalogProducts?: Product[];
-  onReorder: (items: CartItem[]) => void;
+  onReorder?: (items: CartItem[]) => void;
   onExploreCatalog: () => void;
   onClearCart?: () => void;
   onOrderPlaced?: (order: Order) => void;
+  onClearOrders?: () => void;
+  onDeleteOrder?: (orderId: string) => void;
 }
 
 // Obtener el precio unitario exacto del catálogo
@@ -69,7 +67,9 @@ export const OrdersView: React.FC<OrdersViewProps> = ({
   onReorder,
   onExploreCatalog,
   onClearCart,
-  onOrderPlaced
+  onOrderPlaced,
+  onClearOrders,
+  onDeleteOrder
 }) => {
   const [solicitante, setSolicitante] = useState<Solicitante>(() => {
     try {
@@ -176,18 +176,6 @@ export const OrdersView: React.FC<OrdersViewProps> = ({
         setOrderSent(false);
       }, 1500);
     }
-  };
-
-  const handleInquireExistingOrder = (order: Order) => {
-    const orderTotal = typeof order.total === 'number' && order.total > 0 
-      ? order.total 
-      : calculateTotalOrderPrice(order.items, catalogProducts);
-
-    let msg = `Hola PROESA Distribuidora, deseo consultar el estado de mi pedido *${order.orderNumber}* realizado a nombre de *${order.customerName}*.\n`;
-    msg += `• Cantidad: ${order.totalQuantity} unidades\n`;
-    msg += `• Total a Cancelar: ${formatBsPrice(orderTotal)}\n`;
-    msg += `• Dirección de entrega: ${order.deliveryAddress}`;
-    window.open(COMPANY_INFO.whatsappUrl(msg), '_blank');
   };
 
   return (
@@ -459,191 +447,6 @@ export const OrdersView: React.FC<OrdersViewProps> = ({
             </div>
           )}
         </form>
-      </div>
-
-      {/* ======================================================== */}
-      {/* SECCIÓN 2: HISTORIAL DE PEDIDOS REGISTRADOS */}
-      {/* ======================================================== */}
-      <div className="space-y-4">
-        <div className="flex items-center justify-between border-b border-[#E5E5E5] pb-2">
-          <div className="flex items-center gap-2">
-            <PackageCheck className="w-5 h-5 text-[#C4272B]" />
-            <h2 className="font-display font-black text-lg text-[#1A1C1C]">
-              Historial de Pedidos Realizados ({orders.length})
-            </h2>
-          </div>
-          <span className="text-xs text-[#737373]">
-            Registro de solicitudes
-          </span>
-        </div>
-
-        {orders.length === 0 ? (
-          <div className="p-6 bg-white rounded-xl border border-dashed border-[#CCCCCC] text-center text-xs text-[#737373]">
-            No tienes pedidos anteriores registrados en este dispositivo.
-          </div>
-        ) : (
-          <div className="space-y-4">
-            {orders.map((order) => {
-              // Calcular precio total del pedido exacto
-              const orderTotal = typeof order.total === 'number' && order.total > 0
-                ? order.total
-                : calculateTotalOrderPrice(order.items, catalogProducts);
-
-              return (
-                <div
-                  key={order.id}
-                  className="bg-white border-2 border-[#000000] rounded-xl p-4 sm:p-5 shadow-[3px_3px_0px_#000000] space-y-3.5"
-                >
-                  {/* Encabezado del Pedido */}
-                  <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#E5E5E5] pb-2.5">
-                    <div className="flex items-center gap-2">
-                      <span className="font-display font-black text-sm sm:text-base text-[#1A1C1C]">
-                        {order.orderNumber}
-                      </span>
-                      <span className="flex items-center gap-1 text-[11px] text-[#737373] bg-gray-100 px-2 py-0.5 rounded-md">
-                        <Clock className="w-3 h-3" />
-                        {order.date}
-                      </span>
-                    </div>
-
-                    {/* Badge de Estado */}
-                    <span
-                      className={`px-2.5 py-0.5 rounded-full text-xs font-bold ${
-                        order.status === 'Confirmado'
-                          ? 'bg-emerald-100 text-emerald-800 border border-emerald-300'
-                          : order.status === 'En Ruta'
-                          ? 'bg-blue-100 text-blue-800 border border-blue-300'
-                          : order.status === 'Entregado'
-                          ? 'bg-gray-100 text-gray-800 border border-gray-300'
-                          : 'bg-amber-100 text-amber-800 border border-amber-300'
-                      }`}
-                    >
-                      {order.status}
-                    </span>
-                  </div>
-
-                  {/* Datos del solicitante en este pedido */}
-                  <div className="bg-[#F9F9F9] p-2.5 rounded-lg border border-[#E5E5E5] text-xs grid grid-cols-1 sm:grid-cols-3 gap-2">
-                    <div>
-                      <span className="text-[10px] font-bold text-[#737373] uppercase block">
-                        Solicitante:
-                      </span>
-                      <span className="font-semibold text-[#1A1C1C] truncate block">
-                        {order.customerName}
-                      </span>
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-bold text-[#737373] uppercase block">
-                        Celular:
-                      </span>
-                      <span className="font-semibold text-[#1A1C1C]">
-                        {order.phone}
-                      </span>
-                    </div>
-                    <div>
-                      <span className="text-[10px] font-bold text-[#737373] uppercase block">
-                        Dirección:
-                      </span>
-                      <span className="font-semibold text-[#1A1C1C] truncate block">
-                        {order.deliveryAddress}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Tabla de Productos con Precios Parciales a Cancelar */}
-                  <div className="space-y-1.5">
-                    <span className="text-[11px] font-bold uppercase text-[#444444] tracking-wider block">
-                      Productos y Precios Parciales:
-                    </span>
-
-                    <div className="border border-[#E5E5E5] rounded-lg overflow-hidden divide-y divide-[#E5E5E5]">
-                      {order.items.map((item, iIdx) => {
-                        const unitPrice = getCatalogUnitPrice(item, catalogProducts);
-                        const partialPrice = calculatePartialPrice(item, catalogProducts);
-
-                        return (
-                          <div
-                            key={iIdx}
-                            className="p-2.5 bg-white hover:bg-[#FAFAFA] flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-xs"
-                          >
-                            <div className="min-w-0 flex-1">
-                              <div className="flex items-center gap-1.5">
-                                <span className="font-bold text-[#C4272B] text-[10px] bg-[#FFF0F0] px-1 py-0.2 rounded-xs">
-                                  {item.product.sku}
-                                </span>
-                                <h5 className="font-bold text-[#1A1C1C] truncate">
-                                  {item.product.name}
-                                </h5>
-                              </div>
-                              <div className="text-[11px] text-[#555555] mt-0.5 flex flex-wrap gap-2">
-                                <span>Presentación: <strong>{item.presentation.name}</strong></span>
-                                <span className="text-gray-300">•</span>
-                                <span>P. Unitario: <strong>{formatBsPrice(unitPrice)}</strong></span>
-                              </div>
-                            </div>
-
-                            <div className="flex items-center justify-between sm:justify-end gap-3 shrink-0">
-                              <span className="text-[11px] font-semibold text-[#555555]">
-                                Cantidad: <strong className="text-[#1A1C1C]">{item.quantity} unid.</strong>
-                              </span>
-                              <div className="text-right">
-                                <span className="text-[9.5px] uppercase font-bold text-[#737373] block sm:hidden">
-                                  Parcial:
-                                </span>
-                                <span className="font-display font-black text-xs sm:text-sm text-[#C4272B] bg-[#FFF0F0] px-2 py-0.5 rounded-md border border-[#FFD0D0] inline-block tnum">
-                                  {formatBsPrice(partialPrice)}
-                                </span>
-                              </div>
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  {/* Resumen Total del Pedido a Cancelar */}
-                  <div className="bg-[#FFF5F5] border border-[#FFD0D0] p-3 rounded-lg flex flex-wrap items-center justify-between gap-2">
-                    <div>
-                      <span className="text-xs uppercase font-extrabold text-[#C4272B] block">
-                        PRECIO TOTAL DEL PEDIDO A CANCELAR:
-                      </span>
-                      <span className="text-[11px] text-[#555555]">
-                        Cantidad total: <strong>{order.totalQuantity} unidades</strong>
-                      </span>
-                    </div>
-
-                    <div className="text-right">
-                      <span className="font-display font-black text-lg sm:text-xl text-[#C4272B] bg-white px-3 py-1 rounded-md border border-[#C4272B] shadow-2xs inline-block tnum">
-                        {formatBsPrice(orderTotal)}
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Botones de Acción para este Pedido */}
-                  <div className="flex flex-wrap items-center justify-end gap-2 pt-1">
-                    <button
-                      type="button"
-                      onClick={() => handleInquireExistingOrder(order)}
-                      className="px-3 py-1.5 bg-white border border-[#000000] text-[#1A1C1C] rounded-lg text-xs font-bold hover:bg-gray-100 flex items-center gap-1.5 transition-colors cursor-pointer shadow-2xs"
-                    >
-                      <MessageCircle className="w-3.5 h-3.5 text-[#25D366]" />
-                      <span>Consultar por WhatsApp</span>
-                    </button>
-
-                    <button
-                      type="button"
-                      onClick={() => onReorder(order.items)}
-                      className="px-3.5 py-1.5 bg-[#C4272B] hover:bg-[#A9171E] text-white rounded-lg text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer shadow-2xs"
-                    >
-                      <RotateCcw className="w-3.5 h-3.5" />
-                      <span>Repetir este Pedido</span>
-                    </button>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        )}
       </div>
     </div>
   );

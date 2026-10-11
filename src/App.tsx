@@ -51,7 +51,7 @@ export default function App() {
   // Products state persisted in localStorage
   const [products, setProducts] = useState<Product[]>(() => {
     try {
-      const saved = localStorage.getItem('proesa_products_v19');
+      const saved = localStorage.getItem('proesa_products_v20');
       if (saved) return JSON.parse(saved);
     } catch (e) {
       console.error(e);
@@ -92,39 +92,18 @@ export default function App() {
     ];
   });
 
-  // Orders state persisted in localStorage
+  // Orders state persisted in localStorage - historial de pedidos limpios
   const [orders, setOrders] = useState<Order[]>(() => {
     try {
-      const saved = localStorage.getItem('proesa_orders_v2');
+      // Clear legacy sample orders
+      localStorage.removeItem('proesa_orders_v2');
+      localStorage.removeItem('proesa_orders');
+      const saved = localStorage.getItem('proesa_orders_v3');
       if (saved) return JSON.parse(saved);
     } catch (e) {
       console.error(e);
     }
-    return [
-      {
-        id: 'ord-init-1',
-        orderNumber: 'PRO-849201',
-        date: 'Ayer, 16:30',
-        customerName: 'Clínica Los Ángeles (Sucre)',
-        phone: '72853351',
-        deliveryAddress: 'calle San Alberto #210, Sucre',
-        items: [
-          {
-            product: PRODUCTS[0],
-            presentation: PRODUCTS[0].presentations[0] || { name: PRODUCTS[0].defaultPresentation, volume: PRODUCTS[0].defaultPresentation, price: PRODUCTS[0].price, packUnits: PRODUCTS[0].packUnits, packPrice: PRODUCTS[0].packPrice },
-            quantity: 2
-          },
-          {
-            product: PRODUCTS[1],
-            presentation: PRODUCTS[1].presentations[0] || { name: PRODUCTS[1].defaultPresentation, volume: PRODUCTS[1].defaultPresentation, price: PRODUCTS[1].price, packUnits: PRODUCTS[1].packUnits, packPrice: PRODUCTS[1].packPrice },
-            quantity: 4
-          }
-        ],
-        totalQuantity: 6,
-        total: 116,
-        status: 'Confirmado'
-      }
-    ];
+    return [];
   });
 
   // Modals & Panels
@@ -142,7 +121,7 @@ export default function App() {
 
   useEffect(() => {
     try {
-      localStorage.setItem('proesa_products_v19', JSON.stringify(products));
+      localStorage.setItem('proesa_products_v20', JSON.stringify(products));
     } catch (e) {
       console.error(e);
     }
@@ -166,7 +145,7 @@ export default function App() {
 
   useEffect(() => {
     try {
-      localStorage.setItem('proesa_orders_v2', JSON.stringify(orders));
+      localStorage.setItem('proesa_orders_v3', JSON.stringify(orders));
     } catch (e) {
       console.error(e);
     }
@@ -215,6 +194,21 @@ export default function App() {
 
   const handleClearCart = () => {
     setCartItems([]);
+  };
+
+  const handleClearOrders = () => {
+    setOrders([]);
+    try {
+      localStorage.setItem('proesa_orders_v3', JSON.stringify([]));
+      localStorage.removeItem('proesa_orders_v2');
+      localStorage.removeItem('proesa_orders');
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
+  const handleDeleteOrder = (orderId: string) => {
+    setOrders((prev) => prev.filter((o) => o.id !== orderId));
   };
 
   const handleOrderPlaced = (newOrder: Order) => {
@@ -355,6 +349,8 @@ export default function App() {
             }}
             onClearCart={handleClearCart}
             onOrderPlaced={handleOrderPlaced}
+            onClearOrders={handleClearOrders}
+            onDeleteOrder={handleDeleteOrder}
           />
         )}
 
@@ -380,7 +376,7 @@ export default function App() {
       <BottomNav
         currentTab={currentTab}
         onTabChange={handleTabChange}
-        ordersBadgeCount={orders.length}
+        ordersBadgeCount={cartTotalCount}
       />
 
       {/* Cart Drawer with Solicitante and Quantity focus */}
