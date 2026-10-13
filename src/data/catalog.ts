@@ -859,11 +859,11 @@ export const PRODUCTS: Product[] = [
     id: "max-sac-10113",
     sku: "CODIGO 10113",
     name: "MAXIBRILL Sacagrasa (Recarga)",
-    shortDescription: "Fórmula de recarga económica 900 ml para disolver grasa pesada al contacto",
+    shortDescription: "Fórmula de recarga económica 500 ml para disolver grasa pesada al contacto",
     categoryId: "lavavajillas-cocina",
     brand: "MAXI BRILL",
     imageUrl: "/13.png",
-    defaultPresentation: "900 ml",
+    defaultPresentation: "500 ml",
     price: 8,
     packUnits: 12,
     packPrice: 96,
@@ -871,11 +871,11 @@ export const PRODUCTS: Product[] = [
     stockCount: 12,
     featured: true,
     presentations: [
-      { name: "900 ml", volume: "900ml", price: 8, packUnits: 12, packPrice: 96 }
+      { name: "500 ml", volume: "500ml", price: 8, packUnits: 12, packPrice: 96 }
     ],
     technicalSheet: {
       activePrinciple: "Solventes orgánicos desengrasantes + Tensoactivos aniónicos alcalinos",
-      concentration: "Fórmula de recarga económica 900 ml para disolver grasa pesada al contacto",
+      concentration: "Fórmula de recarga económica 500 ml para disolver grasa pesada al contacto",
       ph: "12.0",
       dilution: "Uso directo sin diluir en envase con atomizador.",
       applications: ["Hornos, campanas, freidoras, cocinas industriales y parrillas"],

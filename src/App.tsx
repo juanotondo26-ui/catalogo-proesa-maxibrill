@@ -51,7 +51,7 @@ export default function App() {
   // Products state persisted in localStorage
   const [products, setProducts] = useState<Product[]>(() => {
     try {
-      const saved = localStorage.getItem('proesa_products_v20');
+      const saved = localStorage.getItem('proesa_products_v21');
       if (saved) return JSON.parse(saved);
     } catch (e) {
       console.error(e);
@@ -121,7 +121,7 @@ export default function App() {
 
   useEffect(() => {
     try {
-      localStorage.setItem('proesa_products_v20', JSON.stringify(products));
+      localStorage.setItem('proesa_products_v21', JSON.stringify(products));
     } catch (e) {
       console.error(e);
     }
