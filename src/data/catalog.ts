@@ -3,14 +3,14 @@ import { Category, Product } from "../types";
 export const CATEGORIES: Category[] = [
   {
     id: "desinfectantes",
-    name: "AROMATIZANTES",
-    titleWithAccent: "AROMATIZANTES",
-    countLabel: "6 Prod.",
-    referenceCount: 6,
+    name: "LIMPIA PISOS",
+    titleWithAccent: "LIMPIA PISOS",
+    countLabel: "10 Prod.",
+    referenceCount: 10,
     badgeColor: "red",
     imageUrl: "/4.png",
-    description: "Aromatizantes concentrados y desodorantes ambientales con diversas fragancias",
-    subcategories: ["Todos", "Frutilla", "Lavanda", "Pino"]
+    description: "Limpiadores de pisos concentrados y aromatizantes ambientales con diversas fragancias",
+    subcategories: ["Todos", "Frutos Rojos", "Lavanda", "Pino", "Cremoso"]
   },
   {
     id: "detergentes-lavanderia",
@@ -58,14 +58,14 @@ export const CATEGORIES: Category[] = [
   },
   {
     id: "limpiavidrios-superficies",
-    name: "LIMPIA PISOS",
-    titleWithAccent: "LIMPIA PISOS",
-    countLabel: "10 Prod.",
-    referenceCount: 10,
+    name: "LIMPIA PISOS ULTRA",
+    titleWithAccent: "LIMPIA PISOS ULTRA",
+    countLabel: "6 Prod.",
+    referenceCount: 6,
     badgeColor: "gray",
     imageUrl: "/22.png",
     description: "Limpiadores desinfectantes de pisos ultra concentrados con aromas de larga duración y brillo instantáneo.",
-    subcategories: ["Todos", "Cremoso", "Flores de Primavera", "Despertar de Energía", "Espíritu Joven", "Brisas del Bosque", "Serenidad de Lavanda", "Alegra tu Día"]
+    subcategories: ["Todos", "Flores de Primavera", "Despertar de Energía", "Espíritu Joven", "Brisas del Bosque", "Serenidad de Lavanda", "Alegra tu Día"]
   },
   {
     id: "lavavajillas",
@@ -92,11 +92,11 @@ export const CATEGORIES: Category[] = [
 ];
 
 export const PRODUCTS: Product[] = [
-  // 1. AROMATIZANTES (6 Productos)
+  // 1. LIMPIA PISOS (10 Productos)
   {
     id: "max-aro-10241",
     sku: "CODIGO 10241",
-    name: "MAXIBRILL Desodorante Frutilla",
+    name: "MAXIBRILL LIMPIAPISOS FRUTOS ROJOS",
     shortDescription: "Aromatizante concentrado y desodorante ambiental con fragancia dulce a frutilla silvestre",
     categoryId: "desinfectantes",
     brand: "MAXI BRILL",
@@ -128,7 +128,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "max-aro-10240",
     sku: "CODIGO 10240",
-    name: "MAXIBRILL Desodorante Frutilla",
+    name: "MAXIBRILL LIMPIAPISOS FRUTOS ROJOS",
     shortDescription: "Aromatizante ambiental concentrado líquido con fragancia frutal a frutilla silvestre",
     categoryId: "desinfectantes",
     brand: "MAXI BRILL",
@@ -160,7 +160,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "max-aro-10243",
     sku: "CODIGO 10243",
-    name: "MAXIBRILL Desodorante Lavanda",
+    name: "MAXIBRILL LIMPIAPISOS LAVANDA",
     shortDescription: "Aromatizante ambiental concentrado con esencia relajante de lavanda silvestre",
     categoryId: "desinfectantes",
     brand: "MAXI BRILL",
@@ -192,7 +192,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "max-aro-10242",
     sku: "CODIGO 10242",
-    name: "MAXIBRILL Desodorante Lavanda",
+    name: "MAXIBRILL LIMPIAPISOS LAVANDA",
     shortDescription: "Aromatizante y desodorante ambiental líquido translúcido violeta con aroma a lavanda",
     categoryId: "desinfectantes",
     brand: "MAXI BRILL",
@@ -224,7 +224,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "max-aro-10245",
     sku: "CODIGO 10245",
-    name: "MAXIBRILL Desodorante Pino",
+    name: "MAXIBRILL LIMPIAPISOS PINO",
     shortDescription: "Aromatizante y desodorante ambiental concentrado con esencia pura de pino",
     categoryId: "desinfectantes",
     brand: "MAXI BRILL",
@@ -256,7 +256,7 @@ export const PRODUCTS: Product[] = [
   {
     id: "max-aro-10244",
     sku: "CODIGO 10244",
-    name: "MAXIBRILL Desodorante Pino",
+    name: "MAXIBRILL LIMPIAPISOS PINO",
     shortDescription: "Desodorante ambiental concentrado color verde esmeralda con fragancia a bosque de pino",
     categoryId: "desinfectantes",
     brand: "MAXI BRILL",
@@ -286,13 +286,12 @@ export const PRODUCTS: Product[] = [
     }
   },
 
-  // 2. LIMPIA PISOS (10 Productos)
   {
     id: "max-pis-10238",
     sku: "CODIGO 10238",
     name: "MAXIBRILL Limpiapisos Lavanda Cremoso",
     shortDescription: "Limpiapisos concentrado y limpiador cremoso lechoso 4en1 con fragancia a lavanda",
-    categoryId: "limpiavidrios-superficies",
+    categoryId: "desinfectantes",
     brand: "MAXI BRILL",
     imageUrl: "/3.png",
     defaultPresentation: "5 L",
@@ -324,7 +323,7 @@ export const PRODUCTS: Product[] = [
     sku: "CODIGO 10235",
     name: "MAXIBRILL Limpiapisos Lavanda Cremoso",
     shortDescription: "Limpiapisos concentrado y limpiador cremoso lechoso 4en1 con fragancia a lavanda",
-    categoryId: "limpiavidrios-superficies",
+    categoryId: "desinfectantes",
     brand: "MAXI BRILL",
     imageUrl: "/1.png",
     defaultPresentation: "900 ml",
@@ -356,7 +355,7 @@ export const PRODUCTS: Product[] = [
     sku: "CODIGO 10239",
     name: "MAXIBRILL Limpiapisos Arpege Cremoso",
     shortDescription: "Limpiapisos concentrado y limpiador cremoso lechoso con fragancia fina tipo Arpège",
-    categoryId: "limpiavidrios-superficies",
+    categoryId: "desinfectantes",
     brand: "MAXI BRILL",
     imageUrl: "/4.png",
     defaultPresentation: "5 L",
@@ -388,7 +387,7 @@ export const PRODUCTS: Product[] = [
     sku: "CODIGO 10237",
     name: "MAXIBRILL Limpiapisos Arpege Cremoso",
     shortDescription: "Limpiapisos concentrado y limpiador cremoso lechoso con fragancia fina tipo Arpège",
-    categoryId: "limpiavidrios-superficies",
+    categoryId: "desinfectantes",
     brand: "MAXI BRILL",
     imageUrl: "/2.png",
     defaultPresentation: "900 ml",
@@ -415,6 +414,8 @@ export const PRODUCTS: Product[] = [
       certifications: ["Registro Sanitario Oficial", "Línea Maxi Brill Aromaty"]
     }
   },
+
+  // 2. LIMPIA PISOS ULTRA (6 Productos)
   {
     id: "max-pis-10444",
     sku: "CODIGO 10444",

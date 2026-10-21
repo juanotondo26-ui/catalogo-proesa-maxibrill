@@ -51,7 +51,8 @@ export default function App() {
   // Products state persisted in localStorage
   const [products, setProducts] = useState<Product[]>(() => {
     try {
-      const saved = localStorage.getItem('proesa_products_v21');
+      localStorage.removeItem('proesa_products_v22');
+      const saved = localStorage.getItem('proesa_products_v23');
       if (saved) return JSON.parse(saved);
     } catch (e) {
       console.error(e);
@@ -62,7 +63,8 @@ export default function App() {
   // Categories state persisted in localStorage
   const [categories, setCategories] = useState<Category[]>(() => {
     try {
-      const saved = localStorage.getItem('proesa_categories_v12');
+      localStorage.removeItem('proesa_categories_v13');
+      const saved = localStorage.getItem('proesa_categories_v14');
       if (saved) return JSON.parse(saved);
     } catch (e) {
       console.error(e);
@@ -121,7 +123,7 @@ export default function App() {
 
   useEffect(() => {
     try {
-      localStorage.setItem('proesa_products_v21', JSON.stringify(products));
+      localStorage.setItem('proesa_products_v23', JSON.stringify(products));
     } catch (e) {
       console.error(e);
     }
@@ -129,7 +131,7 @@ export default function App() {
 
   useEffect(() => {
     try {
-      localStorage.setItem('proesa_categories_v12', JSON.stringify(categories));
+      localStorage.setItem('proesa_categories_v14', JSON.stringify(categories));
     } catch (e) {
       console.error(e);
     }
