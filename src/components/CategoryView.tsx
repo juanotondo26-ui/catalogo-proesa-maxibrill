@@ -31,7 +31,7 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
 }) => {
   const [activeSubcategory, setActiveSubcategory] = useState<string>('Todos');
   const [showFilters, setShowFilters] = useState<boolean>(false);
-  const [brandFilter, setBrandFilter] = useState<'ALL' | 'PROESA' | 'MAXI BRILL'>('ALL');
+  const [brandFilter, setBrandFilter] = useState<'ALL' | 'PROESA' | 'MAXI BRILL' | 'UNIKO'>('ALL');
 
   // Filter products for this category
   const filteredProducts = useMemo(() => {
@@ -153,7 +153,7 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
                 Línea / Marca
               </span>
               <div className="flex flex-wrap gap-1.5">
-                {(['ALL', 'PROESA', 'MAXI BRILL'] as const).map((b) => (
+                {(['ALL', 'PROESA', 'MAXI BRILL', 'UNIKO'] as const).map((b) => (
                   <button
                     key={b}
                     onClick={() => setBrandFilter(b)}

@@ -76,7 +76,7 @@ export const FichaTecnicaModal: React.FC<FichaTecnicaModalProps> = ({ product, o
               </p>
               <div className="mt-1 text-[11px] font-semibold text-[#1A1C1C]">
                 Marca:{' '}
-                <span className={product.brand === 'MAXI BRILL' ? 'text-[#C4272B]' : 'text-[#1A1C1C]'}>
+                <span className={product.brand === 'MAXI BRILL' ? 'text-[#C4272B]' : product.brand === 'UNIKO' ? 'text-[#4338CA]' : 'text-[#1A1C1C]'}>
                   {product.brand}
                 </span>
               </div>

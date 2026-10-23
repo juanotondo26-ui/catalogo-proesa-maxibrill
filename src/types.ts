@@ -24,7 +24,7 @@ export type Product = {
   name: string;
   shortDescription: string;
   categoryId: string;
-  brand: 'PROESA' | 'MAXI BRILL';
+  brand: 'PROESA' | 'MAXI BRILL' | 'UNIKO';
   imageUrl: string;
   defaultPresentation: string;
   presentations: PresentationOption[];

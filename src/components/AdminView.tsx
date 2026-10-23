@@ -822,6 +822,7 @@ export const AdminView: React.FC<AdminViewProps> = ({
                   >
                     <option value="PROESA">PROESA</option>
                     <option value="MAXI BRILL">MAXI BRILL</option>
+                    <option value="UNIKO">UNIKO</option>
                   </select>
                 </div>
               </div>

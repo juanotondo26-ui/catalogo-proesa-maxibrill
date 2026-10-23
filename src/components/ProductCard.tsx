@@ -55,6 +55,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({
               MAXI BRILL
             </span>
           )}
+          {product.brand === 'UNIKO' && (
+            <span className="absolute top-2 left-2 bg-[#4338CA] text-white text-[10.5px] font-black px-1.5 py-0.5 rounded-xs tracking-tighter shadow-2xs">
+              UNIKO
+            </span>
+          )}
         </div>
 
         {/* Text information */}

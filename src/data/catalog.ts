@@ -82,12 +82,23 @@ export const CATEGORIES: Category[] = [
     id: "lavandinas",
     name: "LAVANDINAS",
     titleWithAccent: "LAVANDINAS",
-    countLabel: "3 Prod.",
-    referenceCount: 3,
+    countLabel: "5 Prod.",
+    referenceCount: 5,
     badgeColor: "gray",
-    imageUrl: "/29.png",
-    description: "Agua lavandina concentrada 25 g Cl/L para desinfección en cocinas, baños y utensilios.",
-    subcategories: ["Todos", "Concentrada 25g", "Blanqueo Textil", "Desinfección Integral"]
+    imageUrl: "/36.png",
+    description: "Agua lavandina concentrada 25 g Cl/L y Lavandina Ultra 5X más poder para desinfección profunda en cocinas, baños y superficies.",
+    subcategories: ["Todos", "Lavandina Ultra", "Concentrada 25g", "Blanqueo Textil", "Desinfección Integral"]
+  },
+  {
+    id: "jabon-liquido",
+    name: "JABÓN LÍQUIDO",
+    titleWithAccent: "JABÓN LÍQUIDO",
+    countLabel: "2 Prod.",
+    referenceCount: 2,
+    badgeColor: "red",
+    imageUrl: "/33.png",
+    description: "Jabón líquido concentrado para higiene y cuidado de manos con finas fragancias e hidratación.",
+    subcategories: ["Todos", "Lavanda Relajante", "Tentación Cremosa", "5 Litros"]
   }
 ];
 
@@ -635,7 +646,7 @@ export const PRODUCTS: Product[] = [
     shortDescription: "Agua lavandina concentrada 25 g Cl/L para desinfección profunda 99.9%, blanqueo y sanitización",
     categoryId: "lavandinas",
     brand: "MAXI BRILL",
-    imageUrl: "/29.png",
+    imageUrl: "/36.png",
     defaultPresentation: "5 L",
     price: 36,
     packUnits: 2,
@@ -647,7 +658,7 @@ export const PRODUCTS: Product[] = [
       { name: "5 L", volume: "5L", price: 36, packUnits: 2, packPrice: 72 }
     ],
     technicalSheet: {
-      activePrinciple: "Hipoclorito de sodio estabilizado",
+      activePrinciple: "Hipoclorito de sodio estabilizado 25 g Cl/L",
       concentration: "Bidón 5 Litros - 25 g de Cloro Activo por Litro al envasar",
       ph: "11.5",
       dilution: "Cocinas y baños: 1 taza en 5L de agua. Utensilios: 1/2 taza en 5L.",
@@ -660,10 +671,10 @@ export const PRODUCTS: Product[] = [
     id: "max-lav-10932",
     sku: "CODIGO 10932",
     name: "MAXIBRILL Lavandina",
-    shortDescription: "Lavandina concentrada desinfectante con 5X más poder, desinfecta, blanquea y limpia",
+    shortDescription: "Agua lavandina concentrada 25 g Cl/L para desinfección profunda 99.9%, blanqueo y sanitización",
     categoryId: "lavandinas",
     brand: "MAXI BRILL",
-    imageUrl: "/31.png",
+    imageUrl: "/35.png",
     defaultPresentation: "2 L",
     price: 16,
     packUnits: 6,
@@ -675,8 +686,8 @@ export const PRODUCTS: Product[] = [
       { name: "2 L", volume: "2L", price: 16, packUnits: 6, packPrice: 96 }
     ],
     technicalSheet: {
-      activePrinciple: "Hipoclorito de sodio 30 g/L con fórmula 5X Más Poder",
-      concentration: "Botella familiar 2 Litros con agarre anatómico",
+      activePrinciple: "Hipoclorito de sodio estabilizado 25 g Cl/L",
+      concentration: "Botella familiar 2 Litros con agarre anatómico - 25 g Cl/L",
       ph: "11.5",
       dilution: "Desinfección profunda: 1/2 taza en un balde de agua.",
       applications: ["Sanitarios, baldosas, lavado de ropa blanca y desinfección"],
@@ -688,10 +699,10 @@ export const PRODUCTS: Product[] = [
     id: "max-lav-10931",
     sku: "CODIGO 10931",
     name: "MAXIBRILL Lavandina",
-    shortDescription: "Lavandina concentrada desinfectante con 5X más poder, desinfecta, blanquea y limpia",
+    shortDescription: "Agua lavandina concentrada 25 g Cl/L para desinfección profunda 99.9%, blanqueo y sanitización",
     categoryId: "lavandinas",
     brand: "MAXI BRILL",
-    imageUrl: "/30.png",
+    imageUrl: "/34.png",
     defaultPresentation: "1 L",
     price: 9,
     packUnits: 12,
@@ -703,12 +714,68 @@ export const PRODUCTS: Product[] = [
       { name: "1 L", volume: "1L", price: 9, packUnits: 12, packPrice: 108 }
     ],
     technicalSheet: {
-      activePrinciple: "Hipoclorito de sodio 30 g/L con fórmula 5X Más Poder",
-      concentration: "Botella 1 Litro con tapa de seguridad",
+      activePrinciple: "Hipoclorito de sodio estabilizado 25 g Cl/L",
+      concentration: "Botella 1 Litro con tapa de seguridad - 25 g Cl/L",
       ph: "11.5",
       dilution: "Desinfección general: 2 cucharadas soperas por litro de agua.",
       applications: ["Sanitarios, mesadas de cocina, lavado de verduras y blanqueo"],
       precautions: ["Mantener fuera del alcance de niños y mascotas"],
+      certifications: ["Registro Sanitario Oficial", "Línea Maxi Brill"]
+    }
+  },
+  {
+    id: "max-lav-10466",
+    sku: "CODIGO 10466",
+    name: "MAXIBRILL Lavandina Ultra",
+    shortDescription: "Lavandina concentrada concentrada con 50 g Cl/L. Desinfectante con 5X más poder, desinfecta, blanquea y limpia",
+    categoryId: "lavandinas",
+    brand: "MAXI BRILL",
+    imageUrl: "/29.png",
+    defaultPresentation: "5 L",
+    price: 45,
+    packUnits: 2,
+    packPrice: 90,
+    inStock: true,
+    stockCount: 2,
+    featured: true,
+    presentations: [
+      { name: "5 L", volume: "5L", price: 45, packUnits: 2, packPrice: 90 }
+    ],
+    technicalSheet: {
+      activePrinciple: "Hipoclorito de sodio estabilizado 50 g Cl/L (Fórmula Ultra Concentrada 5X)",
+      concentration: "Bidón 5 Litros - 50 g Cl/L. 5X más poder desinfectante, blanqueador y limpiador",
+      ph: "12.0",
+      dilution: "Desinfección de pisos y superficies: 1 taza por balde de agua. Sanitización: 1/2 taza en 5L.",
+      applications: ["Pisos, baños, cocinas, hospitales, colegios y blanqueo de ropa blanca"],
+      precautions: ["Usar guantes de goma. No combinar con amoníaco ni ácidos"],
+      certifications: ["Registro Sanitario Oficial", "Línea Maxi Brill"]
+    }
+  },
+  {
+    id: "max-lav-10468",
+    sku: "CODIGO 10468",
+    name: "MAXIBRILL Lavandina Ultra",
+    shortDescription: "Lavandina concentrada concentrada con 50 g Cl/L. Desinfectante con 5X más poder, desinfecta, blanquea y limpia",
+    categoryId: "lavandinas",
+    brand: "MAXI BRILL",
+    imageUrl: "/30.png",
+    defaultPresentation: "1 L",
+    price: 11,
+    packUnits: 2,
+    packPrice: 132,
+    inStock: true,
+    stockCount: 12,
+    featured: true,
+    presentations: [
+      { name: "1 L", volume: "1L", price: 11, packUnits: 2, packPrice: 132 }
+    ],
+    technicalSheet: {
+      activePrinciple: "Hipoclorito de sodio estabilizado 50 g Cl/L (Fórmula Ultra Concentrada 5X)",
+      concentration: "Botella 1 Litro con tapa de seguridad hermética - 50 g Cl/L",
+      ph: "12.0",
+      dilution: "Desinfección general: 2 cucharadas soperas por litro de agua.",
+      applications: ["Sanitarios, mesadas, azulejos, desinfección de verduras y blanqueo"],
+      precautions: ["Mantener fuera del alcance de niños y mascotas. Usar en áreas ventiladas"],
       certifications: ["Registro Sanitario Oficial", "Línea Maxi Brill"]
     }
   },
@@ -1026,6 +1093,64 @@ export const PRODUCTS: Product[] = [
       applications: ["Recarga directa para limpieza profunda y remoción de manchas de óxido y sarro"],
       precautions: ["Mantener alejado de los niños. Usar protección en manos"],
       certifications: ["Registro Sanitario Oficial", "Línea Maxi Brill"]
+    }
+  },
+
+  // 9. JABÓN LÍQUIDO
+  {
+    id: "uniko-jab-11344",
+    sku: "CODIGO 11344",
+    name: "UNIKO JABÓN LIQUIDO Lavanda Relajante",
+    shortDescription: "Jabón líquido concentrado con esencia relajante de lavanda silvestre",
+    categoryId: "jabon-liquido",
+    brand: "UNIKO",
+    imageUrl: "/33.png",
+    defaultPresentation: "5 L",
+    price: 91,
+    packUnits: 2,
+    packPrice: 182,
+    inStock: true,
+    stockCount: 2,
+    featured: true,
+    presentations: [
+      { name: "5 L", volume: "5L", price: 91, packUnits: 2, packPrice: 182 }
+    ],
+    technicalSheet: {
+      activePrinciple: "Tensoactivos humectantes suaves + Agentes acondicionadores de piel + Esencia de Lavanda Silvestre",
+      concentration: "Bidón institucional 5 Litros - Jabón líquido concentrado con pH balanceado dermo-protector",
+      ph: "6.0 - 6.5 Neutro para la piel",
+      dilution: "Uso directo en dosificadores y jaboneras de pared o mesa.",
+      applications: ["Higiene y lavado frecuente de manos en instituciones educativas, restaurantes, clínicas y oficinas"],
+      precautions: ["Para uso externo. En caso de contacto ocular enjuagar con abundante agua potable"],
+      certifications: ["Registro Sanitario Oficial", "Línea Úniko"]
+    }
+  },
+  {
+    id: "uniko-jab-11349",
+    sku: "CODIGO 11349",
+    name: "UNIKO JABÓN LIQUIDO Tentación Cremosa",
+    shortDescription: "Jabón líquido concentrado con esencia a flores silvestres",
+    categoryId: "jabon-liquido",
+    brand: "UNIKO",
+    imageUrl: "/32.png",
+    defaultPresentation: "5 L",
+    price: 91,
+    packUnits: 2,
+    packPrice: 182,
+    inStock: true,
+    stockCount: 2,
+    featured: true,
+    presentations: [
+      { name: "5 L", volume: "5L", price: 91, packUnits: 2, packPrice: 182 }
+    ],
+    technicalSheet: {
+      activePrinciple: "Fórmula cremosa nacarada con glicerina humectante + Esencia floral a flores silvestres",
+      concentration: "Bidón institucional 5 Litros - Jabón cremoso extra humectante de alto rendimiento",
+      ph: "6.0 - 6.5 Neutro para la piel",
+      dilution: "Uso directo en dispensadores y jaboneras.",
+      applications: ["Lavado de manos continuo, baños ejecutivos, centros educativos, hoteles y uso familiar"],
+      precautions: ["Para uso externo. Conservar en ambiente fresco y seco"],
+      certifications: ["Registro Sanitario Oficial", "Línea Úniko"]
     }
   }
 ];
